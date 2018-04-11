@@ -1,15 +1,13 @@
-matrix:
-  include:
-    - language: java
-      sudo: false
-      script:
-        - 'mvn clean verify'
-        - 'if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then mvn sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey="camel-tooling-common" -Dsonar.projectName="Camel Tooling Common"; fi'
-      jdk: oraclejdk8
-      cache:
-        directories:
-          - $HOME/.m2
-          - $HOME/.sonar/cache
+language: java
+sudo: false
+script:
+  - 'mvn clean verify'
+  - 'if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then mvn sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey="camel-tooling-common" -Dsonar.projectName="Camel Tooling Common"; fi'
+jdk: oraclejdk8
+cache:
+directories:
+  - $HOME/.m2
+  - $HOME/.sonar/cache
 addons:
   sonarcloud:
     organization: "camel-tooling"
