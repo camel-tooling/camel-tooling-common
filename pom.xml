@@ -4,15 +4,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.camel-tooling</groupId>
-	<artifactId>camel-common-tooling</artifactId>
+	<artifactId>camel-tooling-common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Camel Common Tooling</name>
-	<url>https://github.com/camel-tooling/camel-common-tooling</url>
+	<name>Camel Tooling Common</name>
+	<url>https://github.com/camel-tooling/camel-tooling-common</url>
 	<description>Common utilities code for providing Tooling for Apache Camel</description>
 	<scm>
-		<url>http://github.com/camel-tooling/camel-common-tooling/tree/master</url>
-		<connection>scm:git:git://github.com/camel-tooling/camel-common-tooling.git</connection>
-		<developerConnection>scm:git:ssh://github.com:camel-tooling/camel-common-tooling.git</developerConnection>
+		<url>http://github.com/camel-tooling/camel-tooling-common/tree/master</url>
+		<connection>scm:git:git://github.com/camel-tooling/camel-tooling-common.git</connection>
+		<developerConnection>scm:git:ssh://github.com:camel-tooling/camel-tooling-common.git</developerConnection>
 	</scm>
 	<developers>
     	<developer>
