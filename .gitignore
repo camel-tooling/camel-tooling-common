@@ -1,1 +1,12 @@
-/target/
+target
+*.iml
+*.ipr
+*.iws
+*.out
+*.asc
+.DS_Store
+bin
+.metadata
+.idea
+libs/
+
