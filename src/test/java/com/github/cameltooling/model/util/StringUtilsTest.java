@@ -141,7 +141,7 @@ public class StringUtilsTest {
     }
 
     @Test
-    public void wrapNothin() {
+    public void wrapNothing() {
         assertNull(StringUtils.wrapWords(null, "\n", 80, true));
     }
 
