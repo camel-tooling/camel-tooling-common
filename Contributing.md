@@ -74,19 +74,24 @@ And then [generate a pull-request](http://help.github.com/pull-requests/) where 
 
 To do a release we have to follow a few manual steps...
 
-1. change the version in the pom.xml to no longer contain _-SNAPSHOT_. 
-2. commit and push your change to a topic branch
-3. open a Pull Request for your change
-4. let someone from the team review and approve your PR
-5. merge the PR
+- change the version in the pom.xml to no longer contain _-SNAPSHOT_. 
+- commit and push your change to a topic branch
+- open a Pull Request for your change
+- let someone from the team review and approve your PR
+- merge the PR
 
-6. now we cut a tag
+- now we cut a tag
+
+
     git tag -a <version> -m "<some commit commeńt>"
+    
     git push upstream <version>
-7. go to Travic CI and check that the tag is built fine and is deployed to central (https://travis-ci.org/camel-tooling/camel-tooling-common)
 
-8. fetch the latest upstream master sources and change the version in the pom.xml to the next development version. (for instance if you released 0.0.1 you want to switch to 0.0.2-SNAPSHOT)
-9. commit and push your change to a topic branch
-10. open a Pull Request for your change
-11. let someone from the team review and approve your PR
-12. merge the PR
+
+- go to Travic CI and check that the tag is built fine and is deployed to central (https://travis-ci.org/camel-tooling/camel-tooling-common)
+
+- fetch the latest upstream master sources and change the version in the pom.xml to the next development version. (for instance if you released 0.0.1 you want to switch to 0.0.2-SNAPSHOT)
+- commit and push your change to a topic branch
+- open a Pull Request for your change
+- let someone from the team review and approve your PR
+- merge the PR
