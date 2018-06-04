@@ -13,13 +13,18 @@ env:
   global:
   - GPG_DIR="`pwd`/cd"
 after_success:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $IS_SNAPSHOT == "SNAPSHOT" || -n "$TRAVIS_TAG" ]]; then 
+- if [ $IS_SNAPSHOT == "SNAPSHOT" ]]; then
+  export SNAPSHOT=TRUE;
+ else
+  export SNAPSHOT=FALSE;
+ fi
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $SNAPSHOT == "TRUE" || -n "$TRAVIS_TAG" && $SNAPSHOT == "FALSE" ]]; then 
   mvn sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey="camel-tooling-common" -Dsonar.projectName="Camel Tooling Common";
  fi
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $IS_SNAPSHOT == "SNAPSHOT" ]]; then
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $SNAPSHOT == "TRUE" ]]; then
  ./cd/before-deploy.sh;
  ./cd/deploy.sh;
- elif [[ -n "$TRAVIS_TAG" && -z "$IS_SNAPSHOT" ]]; then
+ elif [[ -n "$TRAVIS_TAG" && $SNAPSHOT == "FALSE" ]]; then
  ./cd/before-deploy.sh;
  ./cd/deploy.sh;
  fi
