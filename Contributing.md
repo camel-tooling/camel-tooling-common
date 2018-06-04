@@ -36,7 +36,7 @@ This command will run the build:
 
 If you just want to check if things compile/build you can skip the tests by running:
 
-    mvn clean verify -DskipTests -DskipUITests
+    mvn clean verify -DskipTests
 
 But *do not* push changes without having the new and existing unit tests pass!
 
