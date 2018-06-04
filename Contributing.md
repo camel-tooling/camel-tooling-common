@@ -81,11 +81,10 @@ To do a release we have to follow a few manual steps...
 - merge the PR
 - now we cut a tag
 
-    git tag -a <version> -m "<some commit commeńt>"
+    git tag -a <version> -m "<some commit comment>"
     git push upstream <version>
 
-- go to Travic CI and check that the tag is built fine and is deployed to central (https://travis-ci.org/camel-tooling/camel-tooling-common)
-
+- go to Travis CI and check that the tag is built fine and is deployed to central (https://travis-ci.org/camel-tooling/camel-tooling-common)
 - fetch the latest upstream master sources and change the version in the pom.xml to the next development version. (for instance if you released 0.0.1 you want to switch to 0.0.2-SNAPSHOT)
 - commit and push your change to a topic branch
 - open a Pull Request for your change
