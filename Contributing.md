@@ -14,7 +14,7 @@ To configure Eclipse workspace preferences:
 
 ## Get the code
 
-The easiest way to get started with the code is to [create your own fork](http://help.github.com/forking/) at github, and then clone your fork:
+The easiest way to get started with the code is to [create your own fork](http://help.github.com/forking/) at GitHub, and then clone your fork:
 
     git clone git@github.com:<you>/camel-tooling-common.git
     cd camel-tooling-common
@@ -44,7 +44,7 @@ But *do not* push changes without having the new and existing unit tests pass!
 
 _Camel Tooling Common_ is open source, and we welcome anybody who wants to participate and contribute!
 
-If you want to fix a bug or make any changes, please log an issue at Github [Github Issues](https://github.com/camel-tooling/camel-tooling-common/issues) describing the bug or new feature. Then we highly recommend making the changes on a topic branch named similar to the issue and/or containing the issue number. 
+If you want to fix a bug or make any changes, please log an issue at GitHub [GitHub Issues](https://github.com/camel-tooling/camel-tooling-common/issues) describing the bug or new feature. Then we highly recommend making the changes on a topic branch named similar to the issue and/or containing the issue number. 
 
     git checkout -b 24_addSpecialFeature
 
@@ -79,14 +79,10 @@ To do a release we have to follow a few manual steps...
 - open a Pull Request for your change
 - let someone from the team review and approve your PR
 - merge the PR
-
 - now we cut a tag
 
-
     git tag -a <version> -m "<some commit commeńt>"
-    
     git push upstream <version>
-
 
 - go to Travic CI and check that the tag is built fine and is deployed to central (https://travis-ci.org/camel-tooling/camel-tooling-common)
 
