@@ -7,3 +7,6 @@
 
 # camel-tooling-common
 Repository containing utilities tools to provide tooling for Camel
+
+# Contributing
+Please read the [contribution guide](./Contributing.md "Contribution Guide").
