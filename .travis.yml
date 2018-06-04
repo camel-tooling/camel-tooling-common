@@ -1,4 +1,6 @@
 language: java
+before_install:
+- "export IS_SNAPSHOT=`grep '<version>' pom.xml -m 1 | cut -d'>' -f 2 | cut -d'<' -f 1 | cut -d'-' -f 2`"
 install: 
 - mvn install -P !build-extras -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script: mvn test -P !build-extras -B
@@ -11,8 +13,13 @@ env:
   global:
   - GPG_DIR="`pwd`/cd"
 after_success:
-- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" || -n "$TRAVIS_TAG" ]]; then 
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $IS_SNAPSHOT == "SNAPSHOT" || -n "$TRAVIS_TAG" ]]; then 
   mvn sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey="camel-tooling-common" -Dsonar.projectName="Camel Tooling Common";
+ fi
+- if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $IS_SNAPSHOT == "SNAPSHOT" ]]; then
+ ./cd/before-deploy.sh;
+ ./cd/deploy.sh;
+ elif [[ -n "$TRAVIS_TAG" && -z "$IS_SNAPSHOT" ]]; then
  ./cd/before-deploy.sh;
  ./cd/deploy.sh;
  fi
