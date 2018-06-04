@@ -21,8 +21,8 @@
 
 	<scm>
 		<url>http://github.com/camel-tooling/camel-tooling-common/tree/master</url>
-		<connection>scm:git:git://github.com/camel-tooling/camel-tooling-common.git</connection>
-		<developerConnection>scm:git:ssh://github.com:camel-tooling/camel-tooling-common.git</developerConnection>
+		<connection>scm:git:https://github.com/camel-tooling/camel-tooling-common.git</connection>
+		<developerConnection>scm:git:https://github.com/camel-tooling/camel-tooling-common.git</developerConnection>
 	</scm>
 
 	<developers>
