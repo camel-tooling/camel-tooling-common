@@ -13,7 +13,7 @@ env:
   global:
   - GPG_DIR="`pwd`/cd"
 after_success:
-- if [ $IS_SNAPSHOT == "SNAPSHOT" ]]; then
+- if [[ $IS_SNAPSHOT == "SNAPSHOT" ]]; then
   export SNAPSHOT=TRUE;
  else
   export SNAPSHOT=FALSE;
