@@ -6,7 +6,7 @@
 
 	<groupId>com.github.camel-tooling</groupId>
 	<artifactId>camel-tooling-common</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 
 	<name>Camel Tooling Commons</name>
 	<description>Common utilities code for providing tooling for Apache Camel</description>
