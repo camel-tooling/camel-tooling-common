@@ -21,6 +21,6 @@ import org.apache.camel.catalog.EndpointValidationResult;
 public class UnknownComponentErrorMsg implements CamelDiagnosticEndpointMessage<String> {
     @Override
     public String getErrorMessage(EndpointValidationResult result, String property) {
-        return "Unknown component / Missing dependency";
+        return "The specified component scheme " + property + " is unknown. Make sure you added the right component dependency to your pom.xml.";
     }
 }
