@@ -55,7 +55,7 @@
 		<sonar.jacoco.reportPaths>${sonar.jacoco.reportPath},${sonar.jacoco.itReportPath}</sonar.jacoco.reportPaths>
 
 		<slf4j.version>1.7.6</slf4j.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>5.5.0</junit.version>
 		<assertj.version>3.11.1</assertj.version>
 		<camel.version>2.24.0</camel.version>
 	</properties>
@@ -222,8 +222,8 @@
 			<version>${camel.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>

@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.camel.catalog.EndpointValidationResult;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class EnumErrorMsgTest {
 

@@ -17,7 +17,7 @@
 package com.github.cameltooling.model.util;
 
 import org.apache.camel.catalog.DefaultCamelCatalog;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ModelHelperTest {
 
