@@ -57,7 +57,7 @@
 		<slf4j.version>1.7.6</slf4j.version>
 		<junit.version>5.5.0</junit.version>
 		<assertj.version>3.11.1</assertj.version>
-		<camel.version>2.24.0</camel.version>
+		<camel.version>2.24.1</camel.version>
 	</properties>
 
 	<distributionManagement>
