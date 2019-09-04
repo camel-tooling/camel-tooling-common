@@ -28,6 +28,9 @@ after_success:
  ./cd/before-deploy.sh;
  ./cd/deploy.sh;
  fi
+branches:
+  except:
+    - /^dependabot.*$/
 addons:
   sonarcloud:
     organization: "camel-tooling"
