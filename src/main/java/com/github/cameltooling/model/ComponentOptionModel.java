@@ -16,19 +16,21 @@
  */
 package com.github.cameltooling.model;
 
+import java.util.List;
+
 public class ComponentOptionModel {
 
     private String name;
     private String kind;
     private String group;
-    private String required;
+    private boolean required;
     private String type;
     private String javaType;
-    private String deprecated;
-    private String secret;
+    private boolean deprecated;
+    private boolean secret;
     private String description;
-    private String defaultValue;
-    private String enums;
+    private Object defaultValue;
+    private List<String> enums;
 
     public String getName() {
         return name;
@@ -54,11 +56,11 @@ public class ComponentOptionModel {
         this.group = group;
     }
 
-    public String getRequired() {
+    public boolean getRequired() {
         return required;
     }
 
-    public void setRequired(String required) {
+    public void setRequired(boolean required) {
         this.required = required;
     }
 
@@ -78,19 +80,19 @@ public class ComponentOptionModel {
         this.javaType = javaType;
     }
 
-    public String getDeprecated() {
+    public boolean getDeprecated() {
         return deprecated;
     }
 
-    public void setDeprecated(String deprecated) {
+    public void setDeprecated(boolean deprecated) {
         this.deprecated = deprecated;
     }
 
-    public String getSecret() {
+    public boolean getSecret() {
         return secret;
     }
 
-    public void setSecret(String secret) {
+    public void setSecret(boolean secret) {
         this.secret = secret;
     }
 
@@ -102,19 +104,19 @@ public class ComponentOptionModel {
         this.description = description;
     }
 
-    public String getDefaultValue() {
+    public Object getDefaultValue() {
         return defaultValue;
     }
 
-    public void setDefaultValue(String defaultValue) {
+    public void setDefaultValue(Object defaultValue) {
         this.defaultValue = defaultValue;
     }
 
-    public String getEnums() {
+    public List<String> getEnums() {
         return enums;
     }
 
-    public void setEnums(String enums) {
+    public void setEnums(List<String> enums) {
         this.enums = enums;
     }
 

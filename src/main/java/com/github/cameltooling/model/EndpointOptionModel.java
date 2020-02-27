@@ -16,21 +16,23 @@
  */
 package com.github.cameltooling.model;
 
+import java.util.List;
+
 public class EndpointOptionModel {
 
     private String name;
     private String kind;
     private String group;
     private String label;
-    private String required;
+    private boolean required;
     private String type;
     private String javaType;
-    private String enums;
+    private List<String> enums;
     private String prefix;
-    private String multiValue;
-    private String deprecated;
-    private String secret;
-    private String defaultValue;
+    private boolean multiValue;
+    private boolean deprecated;
+    private boolean secret;
+    private Object defaultValue;
     private String description;
     private String enumValues;
 
@@ -66,11 +68,11 @@ public class EndpointOptionModel {
         this.label = label;
     }
 
-    public String getRequired() {
+    public boolean getRequired() {
         return required;
     }
 
-    public void setRequired(String required) {
+    public void setRequired(boolean required) {
         this.required = required;
     }
 
@@ -90,11 +92,11 @@ public class EndpointOptionModel {
         this.javaType = javaType;
     }
 
-    public String getEnums() {
+    public List<String> getEnums() {
         return enums;
     }
 
-    public void setEnums(String enums) {
+    public void setEnums(List<String> enums) {
         this.enums = enums;
     }
 
@@ -106,35 +108,35 @@ public class EndpointOptionModel {
         this.prefix = prefix;
     }
 
-    public String getMultiValue() {
+    public boolean getMultiValue() {
         return multiValue;
     }
 
-    public void setMultiValue(String multiValue) {
+    public void setMultiValue(boolean multiValue) {
         this.multiValue = multiValue;
     }
 
-    public String getDeprecated() {
+    public boolean getDeprecated() {
         return deprecated;
     }
 
-    public void setDeprecated(String deprecated) {
+    public void setDeprecated(boolean deprecated) {
         this.deprecated = deprecated;
     }
 
-    public String getSecret() {
+    public boolean getSecret() {
         return secret;
     }
 
-    public void setSecret(String secret) {
+    public void setSecret(boolean secret) {
         this.secret = secret;
     }
 
-    public String getDefaultValue() {
+    public Object getDefaultValue() {
         return defaultValue;
     }
 
-    public void setDefaultValue(String defaultValue) {
+    public void setDefaultValue(Object defaultValue) {
         this.defaultValue = defaultValue;
     }
 

@@ -29,9 +29,9 @@ public class ComponentModel {
     private String title;
     private String description;
     private String label;
-    private String deprecated;
-    private String consumerOnly;
-    private String producerOnly;
+    private boolean deprecated;
+    private boolean consumerOnly;
+    private boolean producerOnly;
     private String javaType;
     private String groupId;
     private String artifactId;
@@ -103,27 +103,27 @@ public class ComponentModel {
         this.label = label;
     }
 
-    public String getDeprecated() {
+    public boolean getDeprecated() {
         return deprecated;
     }
 
-    public void setDeprecated(String deprecated) {
+    public void setDeprecated(boolean deprecated) {
         this.deprecated = deprecated;
     }
 
-    public String getConsumerOnly() {
+    public boolean getConsumerOnly() {
         return consumerOnly;
     }
 
-    public void setConsumerOnly(String consumerOnly) {
-        this.consumerOnly = consumerOnly;
+    public void setConsumerOnly(boolean b) {
+        this.consumerOnly = b;
     }
 
-    public String getProducerOnly() {
+    public boolean getProducerOnly() {
         return producerOnly;
     }
 
-    public void setProducerOnly(String producerOnly) {
+    public void setProducerOnly(boolean producerOnly) {
         this.producerOnly = producerOnly;
     }
 
