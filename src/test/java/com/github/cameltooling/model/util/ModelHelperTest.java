@@ -16,14 +16,37 @@
  */
 package com.github.cameltooling.model.util;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+
 import org.apache.camel.catalog.DefaultCamelCatalog;
 import org.junit.jupiter.api.Test;
+
+import com.github.cameltooling.model.ComponentModel;
 
 public class ModelHelperTest {
 
 	@Test
 	public void testGenerateComponentModelForTimerWithoutError() throws Exception {
-		ModelHelper.generateComponentModel(new DefaultCamelCatalog().componentJSonSchema("timer"), true);
+		ComponentModel componentModel = ModelHelper.generateComponentModel(new DefaultCamelCatalog().componentJSonSchema("timer"), true);
+		assertThat(componentModel).isNotNull();
+	}
+	
+	@Test
+	void testCamelComponentWithoutComponentProperties() throws Exception {
+		ComponentModel componentModel = ModelHelper.generateComponentModel("{\"component\": {\"kind\": \"component\", \"scheme\": \"acomponent\", \"syntax\": \"acomponent:withsyntax\"}}", true);
+		assertThat(componentModel).isNotNull();
+	}
+	
+	@Test
+	void testCanLoadAllComponentsFromCurrentCamelCatalog() throws Exception {
+		List<String> componentNames = new DefaultCamelCatalog().findComponentNames();
+		for (String componentName : componentNames) {
+			String componentJSonSchema = new DefaultCamelCatalog().componentJSonSchema(componentName);
+			ComponentModel componentModel = ModelHelper.generateComponentModel(componentJSonSchema, true);
+			assertThat(componentModel).as("Cannot load component %s which has the following schema\n %s", componentName, componentJSonSchema).isNotNull();
+		}
 	}
 
 }

@@ -58,43 +58,46 @@ public final class ModelHelper {
 
 			if (includeOptions) {
 				Map<String, Map<String, Object>> modelComponentProperties = obj.getMap("componentProperties");
-				for (Map.Entry<String, Map<String, Object>> modelComponentProperty : modelComponentProperties.entrySet()) {
-					ComponentOptionModel option = new ComponentOptionModel();
-					Map<String, Object>options = modelComponentProperty.getValue();
-					option.setName(modelComponentProperty.getKey());
-					option.setKind((String)options.getOrDefault("kind", ""));
-					option.setGroup((String)options.getOrDefault("group", ""));
-					option.setRequired(getSafeBoolean("required", options));
-					option.setType((String)options.getOrDefault("type", ""));
-					option.setJavaType((String)options.getOrDefault("javaType", ""));
-					option.setEnums((List<String>)options.getOrDefault("enum", Collections.emptyList()));
-					option.setDeprecated(getSafeBoolean("deprecated", options));
-					option.setSecret(getSafeBoolean("secret", options));
-					option.setDefaultValue((Object)options.getOrDefault("defaultValue", ""));
-					option.setDescription((String)options.getOrDefault("description", ""));
-					component.addComponentOption(option);
+				if (modelComponentProperties != null) {
+					for (Map.Entry<String, Map<String, Object>> modelComponentProperty : modelComponentProperties.entrySet()) {
+						ComponentOptionModel option = new ComponentOptionModel();
+						Map<String, Object>options = modelComponentProperty.getValue();
+						option.setName(modelComponentProperty.getKey());
+						option.setKind((String)options.getOrDefault("kind", ""));
+						option.setGroup((String)options.getOrDefault("group", ""));
+						option.setRequired(getSafeBoolean("required", options));
+						option.setType((String)options.getOrDefault("type", ""));
+						option.setJavaType((String)options.getOrDefault("javaType", ""));
+						option.setEnums((List<String>)options.getOrDefault("enum", Collections.emptyList()));
+						option.setDeprecated(getSafeBoolean("deprecated", options));
+						option.setSecret(getSafeBoolean("secret", options));
+						option.setDefaultValue((Object)options.getOrDefault("defaultValue", ""));
+						option.setDescription((String)options.getOrDefault("description", ""));
+						component.addComponentOption(option);
+					}
 				}
 				
 				Map<String, Map<String, Object>> modelProperties = obj.getMap("properties");
-				for (Map.Entry<String, Map<String, Object>> modelProperty : modelProperties.entrySet()) {
-					EndpointOptionModel option = new EndpointOptionModel();
-					Map<String, Object>options = modelProperty.getValue();
-					option.setName(modelProperty.getKey());
-					option.setKind((String)options.getOrDefault("kind", ""));
-					option.setGroup((String)options.getOrDefault("group", ""));
-					option.setRequired(getSafeBoolean("required", options));
-					option.setType((String)options.getOrDefault("type", ""));
-					option.setJavaType((String)options.getOrDefault("javaType", ""));
-					option.setEnums((List<String>)options.getOrDefault("enum", Collections.emptyList()));
-					option.setPrefix((String)options.getOrDefault("prefix", ""));
-					option.setMultiValue(getSafeBoolean("multiValue", options));
-					option.setDeprecated(getSafeBoolean("deprecated", options));
-					option.setSecret(getSafeBoolean("secret", options));
-					option.setDefaultValue((Object)options.getOrDefault("defaultValue", ""));
-					option.setDescription((String)options.getOrDefault("description", ""));
-					component.addEndpointOption(option);
+				if (modelProperties != null) {
+					for (Map.Entry<String, Map<String, Object>> modelProperty : modelProperties.entrySet()) {
+						EndpointOptionModel option = new EndpointOptionModel();
+						Map<String, Object>options = modelProperty.getValue();
+						option.setName(modelProperty.getKey());
+						option.setKind((String)options.getOrDefault("kind", ""));
+						option.setGroup((String)options.getOrDefault("group", ""));
+						option.setRequired(getSafeBoolean("required", options));
+						option.setType((String)options.getOrDefault("type", ""));
+						option.setJavaType((String)options.getOrDefault("javaType", ""));
+						option.setEnums((List<String>)options.getOrDefault("enum", Collections.emptyList()));
+						option.setPrefix((String)options.getOrDefault("prefix", ""));
+						option.setMultiValue(getSafeBoolean("multiValue", options));
+						option.setDeprecated(getSafeBoolean("deprecated", options));
+						option.setSecret(getSafeBoolean("secret", options));
+						option.setDefaultValue((Object)options.getOrDefault("defaultValue", ""));
+						option.setDescription((String)options.getOrDefault("description", ""));
+						component.addEndpointOption(option);
+					}
 				}
-				
 			}
 		} catch (DeserializationException e) {
 			// TODO Auto-generated catch block
