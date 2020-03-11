@@ -45,14 +45,6 @@
 		<!-- compiler settings -->
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<!-- sonar properties -->
-		<sonar.code.codeCoveragePlugin>jacoco</sonar.code.codeCoveragePlugin>
-		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-		<sonar.test.inclusions>**/*Test.*,**/test/**/*,**/*IT.*</sonar.test.inclusions>
-		<!-- points to the target folder of the global parent project -->
-		<sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>
-		<sonar.jacoco.itReportPath>target/jacoco-it.exec</sonar.jacoco.itReportPath>
-		<sonar.jacoco.reportPaths>${sonar.jacoco.reportPath},${sonar.jacoco.itReportPath}</sonar.jacoco.reportPaths>
 
 		<slf4j.version>1.7.6</slf4j.version>
 		<junit.version>5.6.0</junit.version>
@@ -159,28 +151,12 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.8.5</version>
-				<configuration>
-					<append>true</append>
-					<includes>com.github.cameltooling.*</includes>
-				</configuration>
 				<executions>
 					<execution>
-						<id>agent-for-ut</id>
 						<goals>
 							<goal>prepare-agent</goal>
+							<goal>report</goal>
 						</goals>
-						<configuration>
-							<destFile>${sonar.jacoco.reportPath}</destFile>
-						</configuration>
-					</execution>
-					<execution>
-						<id>agent-for-it</id>
-						<goals>
-							<goal>prepare-agent-integration</goal>
-						</goals>
-						<configuration>
-							<destFile>${sonar.jacoco.itReportPath}</destFile>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
