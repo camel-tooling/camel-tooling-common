@@ -19,7 +19,7 @@ after_success:
   export IS_SNAPSHOT=false;
  fi
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $IS_SNAPSHOT == "true" || -n "$TRAVIS_TAG" && $IS_SNAPSHOT == "false" ]]; then 
-  mvn verfiy sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey="camel-tooling-common" -Dsonar.projectName="Camel Tooling Common";
+  mvn verify sonar:sonar -Dsonar.login=${SONAR_TOKEN} -Dsonar.projectKey="camel-tooling-common" -Dsonar.projectName="Camel Tooling Common";
  fi
 - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" && $IS_SNAPSHOT == "true" ]]; then
  ./cd/before-deploy.sh;
