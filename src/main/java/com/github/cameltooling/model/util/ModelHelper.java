@@ -23,6 +23,8 @@ import java.util.Map;
 import org.apache.camel.util.json.DeserializationException;
 import org.apache.camel.util.json.JsonObject;
 import org.apache.camel.util.json.Jsoner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.github.cameltooling.model.ComponentModel;
 import com.github.cameltooling.model.ComponentOptionModel;
@@ -33,6 +35,8 @@ public final class ModelHelper {
 	private ModelHelper() {
 		// utility class
 	}
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ModelHelper.class);
 
 	public static ComponentModel generateComponentModel(String json, boolean includeOptions) {
 		JsonObject obj;
@@ -100,8 +104,7 @@ public final class ModelHelper {
 				}
 			}
 		} catch (DeserializationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("Cannot deserialize provided json.", e);
 		}    	
 		return component;
 
