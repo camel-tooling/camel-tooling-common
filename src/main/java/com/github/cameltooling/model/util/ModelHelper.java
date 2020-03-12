@@ -75,7 +75,7 @@ public final class ModelHelper {
 						option.setEnums((List<String>)options.getOrDefault("enum", Collections.emptyList()));
 						option.setDeprecated(getSafeBoolean("deprecated", options));
 						option.setSecret(getSafeBoolean("secret", options));
-						option.setDefaultValue((Object)options.getOrDefault("defaultValue", ""));
+						option.setDefaultValue(options.getOrDefault("defaultValue", ""));
 						option.setDescription((String)options.getOrDefault("description", ""));
 						component.addComponentOption(option);
 					}
@@ -97,7 +97,7 @@ public final class ModelHelper {
 						option.setMultiValue(getSafeBoolean("multiValue", options));
 						option.setDeprecated(getSafeBoolean("deprecated", options));
 						option.setSecret(getSafeBoolean("secret", options));
-						option.setDefaultValue((Object)options.getOrDefault("defaultValue", ""));
+						option.setDefaultValue(options.getOrDefault("defaultValue", ""));
 						option.setDescription((String)options.getOrDefault("description", ""));
 						component.addEndpointOption(option);
 					}
