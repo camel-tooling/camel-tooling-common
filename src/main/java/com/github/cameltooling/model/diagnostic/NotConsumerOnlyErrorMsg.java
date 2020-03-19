@@ -16,11 +16,9 @@
  */
 package com.github.cameltooling.model.diagnostic;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
-public class NotConsumerOnlyErrorMsg implements CamelDiagnosticEndpointMessage<String> {
+public class NotConsumerOnlyErrorMsg implements CamelDiagnosticMessage<String> {
     @Override
-    public String getErrorMessage(EndpointValidationResult result, String property) {
+    public String getErrorMessage(String property) {
         return "Option not applicable in consumer only mode";
     }
 

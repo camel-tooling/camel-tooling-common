@@ -18,13 +18,11 @@ package com.github.cameltooling.model.diagnostic;
 
 import java.util.Map;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
 import com.github.cameltooling.model.util.StringUtils;
 
-public class ReferenceErrorMsg implements CamelDiagnosticEndpointMessage<Map.Entry<String, String>> {
+public class ReferenceErrorMsg implements CamelDiagnosticMessage<Map.Entry<String, String>> {
     @Override
-    public String getErrorMessage(EndpointValidationResult result, Map.Entry<String, String> entry) {
+    public String getErrorMessage(Map.Entry<String, String> entry) {
         boolean empty = StringUtils.isEmpty(entry.getValue());
         if (empty) {
             return "Empty reference value";

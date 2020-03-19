@@ -16,11 +16,9 @@
  */
 package com.github.cameltooling.model.diagnostic;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
-public class UnknownErrorMsg implements CamelDiagnosticEndpointMessage<String> {
+public class UnknownErrorMsg implements CamelDiagnosticMessage<String> {
     @Override
-    public String getErrorMessage(EndpointValidationResult result, String property) {
+    public String getErrorMessage(String property) {
         return "Unknown option";
     }
 }

@@ -16,11 +16,9 @@
  */
 package com.github.cameltooling.model.diagnostic;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
-public class UnknownComponentErrorMsg implements CamelDiagnosticEndpointMessage<String> {
+public class UnknownComponentErrorMsg implements CamelDiagnosticMessage<String> {
     @Override
-    public String getErrorMessage(EndpointValidationResult result, String property) {
+    public String getErrorMessage(String property) {
         return "The specified component scheme " + property + " is unknown. Make sure you added the right component dependency to your pom.xml.";
     }
 }

@@ -29,7 +29,7 @@ public class ReferenceErrorMsgTest {
 	public void testGetErrorMessageNotStartingWithSharp() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "aWrongReferenceNotStartingWith#");
-		assertThat(new ReferenceErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new ReferenceErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Invalid")
 		.contains("must start with #")
 		.contains("aWrongReferenceNotStartingWith#");
@@ -39,7 +39,7 @@ public class ReferenceErrorMsgTest {
 	public void testGetErrorMessageStartingWithSharp() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "#aWrongReferenceStartingWith");
-		assertThat(new ReferenceErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new ReferenceErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Invalid")
 		.doesNotContain("must start with #")
 		.contains("#aWrongReferenceStartingWith");
@@ -49,7 +49,7 @@ public class ReferenceErrorMsgTest {
 	public void testGetErrorMessageSpecifyEmpty() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "");
-		assertThat(new ReferenceErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new ReferenceErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Empty")
 		.doesNotContain("must start with #");
 	}

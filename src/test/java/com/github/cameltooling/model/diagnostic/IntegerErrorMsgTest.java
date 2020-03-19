@@ -29,7 +29,7 @@ public class IntegerErrorMsgTest {
 	public void testGetErrorMessageSpecifyInvalid() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "aWrongInteger");
-		assertThat(new IntegerErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new IntegerErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Invalid")
 		.contains("aWrongInteger");
 	}
@@ -38,7 +38,7 @@ public class IntegerErrorMsgTest {
 	public void testGetErrorMessageSpecifyEmpty() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "");
-		assertThat(new IntegerErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new IntegerErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Empty");
 	}
 

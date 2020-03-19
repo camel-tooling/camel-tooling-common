@@ -29,7 +29,7 @@ public class BooleanErrorMsgTest {
 	public void testGetErrorMessageSpecifyInvalid() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "aNonBooleanValue");
-		assertThat(new BooleanErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new BooleanErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Invalid")
 		.contains("aNonBooleanValue");
 	}
@@ -38,7 +38,7 @@ public class BooleanErrorMsgTest {
 	public void testGetErrorMessageSpecifyEmpty() throws Exception {
 		Map<String, String> map = new HashMap<>();
 		map.put("aKey", "");
-		assertThat(new BooleanErrorMsg().getErrorMessage(null, map.entrySet().iterator().next()))
+		assertThat(new BooleanErrorMsg().getErrorMessage(map.entrySet().iterator().next()))
 		.contains("Empty");
 	}
 

@@ -18,11 +18,9 @@ package com.github.cameltooling.model.diagnostic;
 
 import java.util.Map;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
-public class BooleanErrorMsg implements CamelDiagnosticEndpointMessage<Map.Entry<String, String>> {
+public class BooleanErrorMsg implements CamelDiagnosticMessage<Map.Entry<String, String>> {
     @Override
-    public String getErrorMessage(EndpointValidationResult result, Map.Entry<String, String> entry) {
+    public String getErrorMessage(Map.Entry<String, String> entry) {
         boolean empty = entry.getValue() == null || entry.getValue().length() == 0;
         if (empty) {
             return "Empty boolean value";

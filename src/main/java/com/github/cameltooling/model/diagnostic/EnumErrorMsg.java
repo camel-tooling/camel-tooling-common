@@ -19,26 +19,37 @@ package com.github.cameltooling.model.diagnostic;
 import java.util.Arrays;
 import java.util.Map;
 
+import org.apache.camel.catalog.ConfigurationPropertiesValidationResult;
 import org.apache.camel.catalog.EndpointValidationResult;
 
-public class EnumErrorMsg implements CamelDiagnosticEndpointMessage<Map.Entry<String, String>> {
-    @Override
-    public String getErrorMessage(EndpointValidationResult result, Map.Entry<String, String> entry) {
-        String name = entry.getKey();
-        String[] choices = result.getInvalidEnumChoices().get(name);
-        String defaultValue = result.getDefaultValues() != null ? result.getDefaultValues().get(entry.getKey()) : null;
+public class EnumErrorMsg {
+
+	public String getErrorMessage(EndpointValidationResult result, Map.Entry<String, String> entry) {
+		Map<String, String[]> invalidEnumChoices = result.getInvalidEnumChoices();
+		Map<String, String> defaultValues = result.getDefaultValues();
+        return getErrorMessage(entry, invalidEnumChoices, defaultValues);
+    }
+	
+	public String getErrorMessage(ConfigurationPropertiesValidationResult result, Map.Entry<String, String> entry) {
+		Map<String, String[]> invalidEnumChoices = result.getInvalidEnumChoices();
+		Map<String, String> defaultValues = result.getDefaultValues();
+		return getErrorMessage(entry, invalidEnumChoices, defaultValues);
+	}
+
+	private String getErrorMessage(Map.Entry<String, String> entry, Map<String, String[]> invalidEnumChoices, Map<String, String> defaultValues) {
+		String name = entry.getKey();
+		String[] choices = invalidEnumChoices.get(name);
+		String defaultValue = defaultValues != null ? defaultValues.get(entry.getKey()) : null;
         String str = Arrays.asList(choices).toString();
         String msg = "Invalid enum value: " + entry.getValue() + ". Possible values: " + str;
-        if (result.getInvalidEnumChoices() != null) {
-            String[] suggestions = result.getInvalidEnumChoices().get(name);
-            if (suggestions != null && suggestions.length > 0) {
-                str = Arrays.asList(suggestions).toString();
-                msg += ". Did you mean: " + str;
-            }
+        if (choices != null && choices.length > 0) {
+        	str = Arrays.asList(choices).toString();
+        	msg += ". Did you mean: " + str;
         }
         if (defaultValue != null) {
             msg += ". Default value: " + defaultValue;
         }
         return msg;
-    }
+	}
+	
 }

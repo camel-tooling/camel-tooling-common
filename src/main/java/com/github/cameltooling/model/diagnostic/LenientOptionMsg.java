@@ -16,9 +16,7 @@
  */
 package com.github.cameltooling.model.diagnostic;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
-public class LenientOptionMsg implements CamelDiagnosticEndpointMessage<String> {
+public class LenientOptionMsg implements CamelDiagnosticMessage<String> {
 
     private final boolean highlight;
 
@@ -27,7 +25,7 @@ public class LenientOptionMsg implements CamelDiagnosticEndpointMessage<String> 
     }
 
     @Override
-    public String getErrorMessage(EndpointValidationResult result, String property) {
+    public String getErrorMessage(String property) {
         return property + " is a custom option that is not part of the Camel component";
     }
 

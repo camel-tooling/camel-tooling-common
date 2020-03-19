@@ -16,20 +16,17 @@
  */
 package com.github.cameltooling.model.diagnostic;
 
-import org.apache.camel.catalog.EndpointValidationResult;
-
 /**
  * Constructing an error message from the validation result.
  */
-public interface CamelDiagnosticEndpointMessage<T> {
+public interface CamelDiagnosticMessage<T> {
 
     /**
      * Return error messaged constructed to match the validation result.
      *
-     * @param endpointValidationResult - The validation result return from the {@link org.apache.camel.catalog.CamelCatalog} validator
      * @param valueObj - The key and value object validated.
      */
-    String getErrorMessage(EndpointValidationResult endpointValidationResult, T valueObj);
+    String getErrorMessage(T valueObj);
 
     /**
      * @return Is this an error
