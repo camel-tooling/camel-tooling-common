@@ -5,6 +5,10 @@
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)]()
 [![Gitter](https://img.shields.io/gitter/room/camel-tooling/Lobby.js.svg)](https://gitter.im/camel-tooling/Lobby)
 
+**THIS REPOSITORY HAS BEEN ARCHIVED!**
+
+Code has been integrated in [Camel Language Server](https://github.com/camel-tooling/camel-language-server) directly.
+
 # camel-tooling-common
 Repository containing utilities tools to provide tooling for Camel
 
